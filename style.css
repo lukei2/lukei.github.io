@@ -23,12 +23,18 @@ p, br {
 /* Photo grid container */
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 2em;
     max-width: 1000px;
     margin: auto;
 }
+
+/* Center last item if it's alone in the last row */
+.photo-grid:has(.photo-item:nth-last-child(1):nth-child(3n + 1)) .photo-item:last-child {
+    justify-self: center;
+}
+
 
 /* Individual photo item */
 .photo-item {
@@ -84,3 +90,4 @@ p, br {
     border-radius: 10px;
     margin-bottom: 2em;
 }
+
