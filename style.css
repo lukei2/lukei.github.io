@@ -91,3 +91,7 @@ p, br {
     margin-bottom: 2em;
 }
 
+/* Style placeholder items so they're invisible but take up space */
+.photo-item.placeholder {
+    visibility: hidden;
+}
