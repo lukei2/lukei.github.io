@@ -30,6 +30,12 @@ p, br {
     margin: 0 auto;
 }
 
+/* ✅ Center last row of exactly 2 items */
+.photo-grid:has(.photo-item:nth-last-child(2):nth-child(3n+1)) {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+}
+
 /* Individual photo item */
 .photo-item {
     position: relative;
@@ -83,9 +89,4 @@ p, br {
     height: auto;
     border-radius: 10px;
     margin-bottom: 2em;
-}
-
-/* Center a last row of exactly two items */
-.photo-grid > .photo-item:nth-last-child(2):nth-child(3n + 1) {
-    grid-column: 2;
 }
