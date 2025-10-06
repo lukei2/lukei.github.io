@@ -90,3 +90,13 @@ p, br {
     border-radius: 10px;
     margin-bottom: 2em;
 }
+
+.youtube-link {
+  font-size: 1em;
+  color: #ff4c4c; /* optional – gives it a YouTube red look */
+  text-decoration: none;
+}
+
+.youtube-link:hover {
+  text-decoration: underline;
+}
