@@ -1,99 +1,169 @@
-/* General body styling */
+/* =========================================
+   Global site styles (all pages)
+========================================= */
+
+:root {
+  --bg: #000;
+  --fg: #fff;
+  --accent: #f0c674;
+}
+
 body {
-    background-color: black;
-    color: white;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    font-size: 1.5em;
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 18px; /* sane default across all pages */
+  line-height: 1.6;
 }
 
 /* Headings */
 h1, h2 {
-    margin-top: 1.5em;
+  margin-top: 1.5em;
 }
 
-/* Paragraphs */
-p, br {
-    line-height: 1.6;
-    font-size: 3em;
+/* Default paragraph styling (project pages won’t be gigantic) */
+p {
+  margin: 0.75em 0;
+}
+
+/* Utility */
+a {
+  color: inherit;
+}
+
+/* =========================================
+   Homepage-only styles
+   Add: <body class="home">
+========================================= */
+
+body.home {
+  font-size: 1.5em;
+}
+
+body.home p {
+  font-size: 3em;
+  line-height: 1.2;
 }
 
 /* Photo grid container */
 .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 2em;
-    max-width: 1000px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 2em;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-/* ✅ Center last row of exactly 2 items */
+/* Center last row if exactly 2 items (supported in modern browsers) */
 .photo-grid:has(.photo-item:nth-last-child(2):nth-child(3n+1)) {
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
 }
 
 /* Individual photo item */
 .photo-item {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 1 / 1; /* Keeps square shape */
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1; /* Keeps square shape */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* Images */
+/* Images inside grid */
 .photo-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: filter 0.3s ease, transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 /* Hover effect */
 .photo-item:hover img {
-    filter: grayscale(100%);
-    transform: scale(1.05);
+  filter: grayscale(100%);
+  transform: scale(1.05);
 }
 
 /* Overlay */
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    font-size: 1.2em;
-    text-align: center;
-    padding: 0 10px;
-    line-height: 1.2;
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 0 10px;
+  line-height: 1.2;
 }
 
 .photo-item:hover .overlay {
-    opacity: 1;
+  opacity: 1;
 }
 
-/* Content image style (used on subpages maybe) */
-.content-img {
-    max-width: 30em;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 2em;
+/* =========================================
+   Project pages (p1.html, p1extended.html, etc.)
+========================================= */
+
+.text-section {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 0 1.25rem;
 }
 
+h3 {
+  color: var(--accent);
+}
+
+/* Content image style (used on subpages) */
+img.content-img {
+  max-width: min(900px, 92vw);
+  height: auto;
+  border-radius: 10px;
+  margin: 2em auto;
+  display: block;
+}
+
+/* Lists */
+ul {
+  line-height: 1.6;
+}
+
+/* Button link to extended page */
+.extended-link-container {
+  text-align: center;
+  margin: 3em 0 1em;
+}
+
+.extended-link {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+}
+
+.extended-link:hover {
+  background-color: var(--accent);
+  color: #000;
+}
+
+/* YouTube link */
 .youtube-link {
   font-size: 1em;
-  color: #ff4c4c; /* optional – gives it a YouTube red look */
+  color: #ff4c4c;
   text-decoration: none;
 }
 
