@@ -24,6 +24,8 @@ h1, h2 {
   margin-top: 1.5em;
 }
 
+
+
 /* Default paragraph styling (project pages won’t be gigantic) */
 p {
   margin: 0.75em 0;
@@ -169,4 +171,45 @@ ul {
 
 .youtube-link:hover {
   text-decoration: underline;
+}
+
+/* =========================================
+   Extended project page readability fixes
+========================================= */
+
+.text-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: left;
+}
+
+/* Paragraph spacing */
+.text-section p {
+  margin: 1.25em 0;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* Section headings */
+.text-section h2,
+.text-section h3 {
+  margin-top: 3em;
+  margin-bottom: 0.75em;
+}
+
+/* First heading shouldn’t be pushed down */
+.text-section h2:first-child,
+.text-section h3:first-child {
+  margin-top: 1.5em;
+}
+
+/* Improve visual separation between sections */
+.section {
+  margin-bottom: 3em;
+}
+
+/* Optional: soften overall feel */
+.text-section {
+  letter-spacing: 0.01em;
 }
