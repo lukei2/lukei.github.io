@@ -213,3 +213,52 @@ ul {
 .text-section {
   letter-spacing: 0.01em;
 }
+
+/* =========================================
+   Page-specific typography control
+========================================= */
+
+/* Normal project pages (p1–p8 etc.) */
+body.project {
+  font-size: 1.5em;       /* restores your previous big sizing */
+  text-align: center;
+}
+
+/* If you want headings a bit tighter on project pages */
+body.project h1,
+body.project h2 {
+  margin-top: 1.5em;
+}
+
+/* Extended page: readable article style */
+body.extended {
+  font-size: 18px;        /* keeps extended from being huge */
+  text-align: center;     /* title can stay centered */
+}
+
+/* Constrain and left-align the reading column */
+body.extended .text-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: left;
+}
+
+/* Paragraph spacing + readable line height */
+body.extended .text-section p {
+  margin: 1.25em 0;
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+/* Section headings spacing */
+body.extended .text-section h2,
+body.extended .text-section h3 {
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+}
+
+/* Optional: give sections breathing room */
+body.extended .section {
+  margin-bottom: 2.5em;
+}
