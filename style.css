@@ -227,7 +227,7 @@ body.project {
 /* If you want headings a bit tighter on project pages */
 body.project h1,
 body.project h2 {
-  margin-top: 1.5em;
+  margin-top: 3em;
 }
 
 /* Extended page: readable article style */
