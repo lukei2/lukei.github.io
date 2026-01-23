@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRATOS Combat Robot</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body class="extended">
+
+<div class="text-section">
+    <a href="index.html" style="color:#f0c674;">
+    ← Back to Project Overview
+    </a>
+
+    <div class="section">
+    <h1>Oreo Extended</h1>
+
+    <h3>Context</h3>
+    <p>In combat robotics, the best defense is a good offense. This idea is taken to heart with MIT CRC's newest 30 lb. robot KRATOS.
+        KRATOS uses an overhead spinner encompassing the entire robot's footprint to deal serious damage to any robot which comes close.
+        </p>
+    </div>
+
+    <div class="section">
+    <h3>Design and Limitations</h3>
+    <p>The biggest drawback with an overhead spinner is slow spin up times. Because the moment of inertia is so large, most overheads defenseless.
+        Our solution to this problem was to use a novel type of brushless motor called an axial-flux motor. These kinds of motors are very common in
+        electric vehicles. Unfortunately there are not sold or produced for our scale, so we had to build our own.
+        <br>
+        <br>
+        The next limiting factor to consider is blade height. There are a couple factors that make this quantity important,
+        but to summarize the important and less defended parts of a robot (wheels, motors, wedges, etc) are closer to the ground.
+        If we want to deal serious damage, we will have to keep our robot as flat as possible.
+        <br>
+        <br>
+        As for materials, we decided to use UHMW for our main chassis (shown below) and side guards. UHMW is able to take a large amount of force and break in a controlled way
+        way without transferring too much force to the robot itself. It is also cheap and easy to replace,
+        so when it breaks we are able to quickly and affordably replace it. For our weapon, we decided to go with hardened steel.
+        Hardened steel is rigid enough to deliver high forces to opponent robots, yet compliant enough to deform slightly without breaking.
+        <img src="images\KRATOSCHASSIS.png" alt="KRATOS Chassis" class="content-img">
+        <br>
+        <br>
+        These considerations helped lead us to our preliminary design shown below.
+        <img src="images\KRATOSCAD.png" alt="KRATOS Robot Design" class="content-img">
+
+
+    </p>
+    </div>
+
+    <div class="section">
+    <h3>Building</h3>
+    <p>Constructing KRATOS consisted of lots of machining. Apart from the UHMW chassis which we ordered pre CNCed, we manufactured the rest of the parts
+        which were not able to buy off the shelf. We also assembled our axial-flux motor from scratch (apart from ordering the necessary PCBs).
+        My main role in the construction of this robot was creating the CAM files in Fusion360, machining them on the CNC mill, and soldering/electrical wiring.
+        I have also worked on the pit/repair team for KRATOS during competitions.
+    </p>
+    </div>
+
+    <div class="section">
+    <h3>Analysis & Improvement</h3>
+    <p>KRATOS has had a number of hardware challenges in its first year of life. The primary challenge we face is that
+        the weapon simply produces too much torque upon impact. In our first battle, we found that our weapon had deformed from too much torque.
+        To remedy this we switched from a three pronged weapon to a one pronged weapon which offered more reinforcement.
+        <br>
+        <br>
+        alongside the weapon challenges, the chain would break on the first hit of most matches.
+        This was originally caused by flexion in the weapon towards the body of the robot. We solved thhis problem by adding a weapon guard around the chain
+        (made from UHMW), but found that the chain was still breaking due to the force of the impact. In order to fix this problem, we plan to replace the chain
+        system with a gear system.
+        <br>
+        <br>
+        We also found that KRATOS kept burning out its ESC.
+        Apart from the ESC not being able to supply enough current for spin up, the motor would produce strong back EMF when the blade made contact
+        with another robot. Both of these issues ended up frying the ESC. In order to solve this, one of my teammates built his own custon high power ESC
+        which we will be using in February. In the meantime, we turned down the max speed of the motor.
+    </p>
+    </div>
+
+</div>
+</body>
+</html>
