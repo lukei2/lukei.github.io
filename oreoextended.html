@@ -19,32 +19,50 @@
     <h1>Oreo Extended</h1>
 
     <h3>Context</h3>
-    <p>In combat robotics, the best defense is a good offense. This idea is taken to heart with MIT CRC's newest 30 lb. robot KRATOS.
-        KRATOS uses an overhead spinner encompassing the entire robot's footprint to deal serious damage to any robot which comes close.
+    <p>Oreo is my first solo combat robot. I decided to build a translational drift robot mostly because I though it would be fun and challenging.
+        Translational drift or "melty-brain" robots are very uncommon in combat robotics, mostly because they are difficult to drive and design.
+        I wanted to use this opportunity to do something unique and hopefully build a succesful bot.
         </p>
     </div>
 
     <div class="section">
+    <h3>What is a melty-brain?</h3>
+    <p>Mellty brain robots spin up their whole body and pulse motors in order to translate while rotating.
+        One can imagine the superposition of a bunch of force vectors on one side of a circle (pictured below).
+        If you add them all up, you will end up with a vector pointing straight in one direction, the direction of translation.
+        <img src="images/circ.png" alt="Vectors" class="content-img">
+        <br>
+        <br>
+        There are a couple benefits to this strategy. One is that you can use the entire robot's mass as the weapon.
+        Since the robot is wider than a normal spinning weapon, this also leads to a higher moment of inertia, since the mass is spread out further.
+        This also significantly increases tip speed for a given RPM, which can be helpful for taking the advcanatage in weapon to weapon hits.
+        <br>
+        <br>
+        The main disadvantage of a melty brain is that it is helpless when not spinning.
+        It has weak maneuverability, and is easily pinned and tossed around.
+
+
+    <div class="section">
     <h3>Design and Limitations</h3>
-    <p>The biggest drawback with an overhead spinner is slow spin up times. Because the moment of inertia is so large, most overheads defenseless.
-        Our solution to this problem was to use a novel type of brushless motor called an axial-flux motor. These kinds of motors are very common in
-        electric vehicles. Unfortunately there are not sold or produced for our scale, so we had to build our own.
+    <p>I threw together a CAD model as a preliminary idea when I first decided to build a melty (shown below).
+        After reviewing current succesful bots, I realized that this design was way too complex.
+        There were more parts than necessary which increased failure modes and took away from the weight I could use for more useful things.
+        <div class="img-row">
+            <img src="images/m1.png" alt="Oreo v1" class="content-img">
+            <img src="images/m2.png" alt="Oreo v1" class="content-img">
+        </div>
         <br>
         <br>
-        The next limiting factor to consider is blade height. There are a couple factors that make this quantity important,
-        but to summarize the important and less defended parts of a robot (wheels, motors, wedges, etc) are closer to the ground.
-        If we want to deal serious damage, we will have to keep our robot as flat as possible.
+        After analyzing other current melty-brain designs, I found some improvements I could make for V2. First of all,
+        I decided to make the frame of the robot rest on the weapon itself. The main structure would be a hardened steel ring
+        which doubles as the weapon. This would protect the internals of the robot with an inch of steel as opposed to quarter inch TPU.
+        For the weapon, I decided to switch from two teeth to one. This increases the "bite" of the weapon
+         while also making the bot easier to balance (the weight of the battery offsets the weight of the weapon).
+        I also simplified the suspension system. Instead of belts and bulky wheels, I decided to mount some laser cut spring steel wheels
+        directly to the motors. I attached the motors to the frame via TPU mounts, which allows for more flex to absorb force for the motors.
         <br>
-        <br>
-        As for materials, we decided to use UHMW for our main chassis (shown below) and side guards. UHMW is able to take a large amount of force and break in a controlled way
-        way without transferring too much force to the robot itself. It is also cheap and easy to replace,
-        so when it breaks we are able to quickly and affordably replace it. For our weapon, we decided to go with hardened steel.
-        Hardened steel is rigid enough to deliver high forces to opponent robots, yet compliant enough to deform slightly without breaking.
-        <img src="images\KRATOSCHASSIS.png" alt="KRATOS Chassis" class="content-img">
-        <br>
-        <br>
-        These considerations helped lead us to our preliminary design shown below.
-        <img src="images\KRATOSCAD.png" alt="KRATOS Robot Design" class="content-img">
+        These considerations led me to the design shown below.
+        <img src="images\ocad.png" alt="Oreo CAD V2" class="content-img">
 
 
     </p>
