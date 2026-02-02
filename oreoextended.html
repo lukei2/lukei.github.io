@@ -54,7 +54,7 @@
         <br>
         <br>
         After analyzing other current melty-brain designs, I found some improvements I could make for V2. First of all,
-        I decided to make the frame of the robot rest join with the weapon itself. The main structure would be a hardened steel ring
+        I decided to make the frame of the robot one with the weapon itself. The main structure would be a hardened steel ring
         which doubles as the weapon. This would protect the internals of the robot with an inch of steel as opposed to quarter inch TPU.
         For the weapon, I decided to switch from two teeth to one. This increases the "bite" of the weapon
         while also making the bot easier to balance (the weight of the battery offsets the weight of the weapon).
@@ -71,8 +71,9 @@
 
     <div class="section">
     <h3>Electronics</h3>
-    <p>The general idea to Oreo's circuitry is that a 22V LiPo powers and Arduino Nano which recieves signal from an RC
-        transmitter and an accelerometer. The reciever tells the Arduino the users intended movement, and the accelerometer
+    <p>The general idea to Oreo's circuitry is that a 22V LiPo powers and Arduino Nano through a buck converter
+        which recieves signal from an RC transmitter and an accelerometer. The reciever tells the Arduino the users
+        intended movement, and the accelerometer
         tells the arduino how fast it's spinning using a radial acceleration -> rotational frequency calculation.
         The arduino sends PWM signals to the ESCs depending on the input signal.
         An LED is also illuminated once per rotation to mark the heading direction.
