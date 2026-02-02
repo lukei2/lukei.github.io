@@ -20,7 +20,7 @@
 
     <h3>Context</h3>
     <p>Oreo is my first solo combat robot. I decided to build a translational drift robot mostly because I though it would be fun and challenging.
-        Translational drift or "melty-brain" robots are very uncommon in combat robotics, mostly because they are difficult to drive and design.
+        Translational drift or "melty-brain" robots are very uncommon in combat robotics because they are difficult to drive and design.
         I wanted to use this opportunity to do something unique and hopefully build a succesful bot.
         </p>
     </div>
@@ -34,7 +34,7 @@
         <br>
         <br>
         There are a couple benefits to this strategy. One is that you can use the entire robot's mass as the weapon.
-        Since the robot is wider than a normal spinning weapon, this also leads to a higher moment of inertia, since the mass is spread out further.
+        Since the robot is wider than a normal spinning weapon, this also leads to a higher moment of inertia.
         This also significantly increases tip speed for a given RPM, which can be helpful for taking the advcanatage in weapon to weapon hits.
         <br>
         <br>
@@ -69,11 +69,18 @@
     </p>
     </div>
 
-    <!-- <div class="section">
-    <h3>Building</h3>
-    <p>Oreo is mostly 3D printed, although I
+    <div class="section">
+    <h3>Electronics</h3>
+    <p>The general idea to Oreo's circuitry is that a 22V LiPo powers and Arduino Nano which recieves signal from an RC
+        transmitter and an accelerometer. The reciever tells the Arduino the users intended movement, and the accelerometer
+        tells the arduino how fast were spinning using a radial acceleration -> rotational frequency calculation.
+        The arduino sends PWM signals to the ESCs depending on the input signal.
+        An LED is also illuminated once per rotation to mark the heading direction.
+
+        Here is the electrical diagram for me robot, sourced from an open source project called <a href="https://github.com/nothinglabs/openmelt2" target="_blank" rel="noopener noreferrer">OpenmeltV2</a>.
+        <img src="images/schematic.jpg" alt="Schematic" class="content-img">
     </p>
-    </div> -->
+    </div>
 
     <!-- <div class="section">
     <h3>Analysis & Improvement</h3>
