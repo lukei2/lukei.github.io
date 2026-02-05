@@ -19,34 +19,35 @@
     <h1>Oreo Extended</h1>
 
     <h3>Context</h3>
-    <p>Oreo is my first solo combat robot. I decided to build a translational drift robot mostly because I though it would be fun and challenging.
+    <p>Oreo is my first solo combat robot. I decided to build a translational drift robot mostly because I thought it would be fun and challenging.
         Translational drift or "melty-brain" robots are very uncommon in combat robotics because they are difficult to drive and design.
-        I wanted to use this opportunity to do something unique and hopefully build a succesful bot.
+        I wanted to use this opportunity to do something unique and hopefully build a successful bot.
         </p>
     </div>
 
     <div class="section">
     <h3>What is a melty-brain?</h3>
-    <p>Mellty brain robots spin up their whole body and pulse motors in order to translate while rotating.
-        One can imagine the superposition of a bunch of force vectors on one side of a circle (pictured below).
-        If you add them all up, you will end up with a vector pointing straight in one direction, the direction of translation.
+    <p>Melty-brain robots spin their entire body and pulse their drive motors to generate translation while rotating.
+        This motion can be understood as the superposition of force vectors applied on one side of a rotating circle
+        (pictured below). When summed, these vectors produce a net force in a single direction, resulting in translation.
         <img src="images/circ.png" alt="Vectors" class="content-img">
         <br>
         <br>
-        There are a couple benefits to this strategy. One is that you can use the entire robot's mass as the weapon.
-        Since the robot is wider than a normal spinning weapon, this also leads to a higher moment of inertia.
-        This also significantly increases tip speed for a given RPM, which can be helpful for taking the advantage in weapon to weapon hits.
+        One major benefit of this strategy is that the entire mass of the robot acts as the weapon.
+        Because the robot’s diameter is larger than that of a conventional spinning weapon,
+        this results in a higher moment of inertia and increased tip speed at a given RPM,
+        which can be advantageous in weapon-to-weapon impacts.
         <br>
         <br>
-        The main disadvantage of a melty brain is that it is helpless when not spinning.
+        The main disadvantage of a melty-brain is that it is helpless when not spinning.
         It has weak maneuverability, and is easily pinned and tossed around.
 
 
     <div class="section">
     <h3>Design and Limitations</h3>
-    <p>I threw together a CAD model as a preliminary idea when I first decided to build a melty (shown below).
-        After reviewing current succesful bots, I realized that this design was way too complex.
-        There were more parts than necessary which increased failure modes and took away from the weight I could use for more useful things.
+    <p>I created an initial CAD model as a preliminary concept when I first decided to build a melty-brain robot (shown below).
+        After reviewing current succesful bots, I realized that this design was too complex.
+        There were more parts than necessary, which increased failure modes and consumed weight that could be better allocated elsewhere.
     </p>
     <div class="img-row">
         <img src="images/m1.png" alt="Oreo v1" class="content-img">
@@ -54,7 +55,7 @@
     </div>
     <p>After analyzing other current melty-brain designs, I found some improvements I could make for V2. First of all,
         I decided to make the frame of the robot one with the weapon itself. The main structure would be a hardened steel ring
-        which doubles as the weapon. This would protect the internals of the robot with an inch of steel as opposed to quarter inch TPU.
+        which doubles as the weapon. This would protect the internals of the robot with an inch of steel as opposed to quarter-inch TPU.
         For the weapon, I decided to switch from two teeth to one. This increases the "bite" of the weapon
         while also making the bot easier to balance (the weight of the battery offsets the weight of the weapon).
         I also simplified the suspension system. Instead of belts and bulky wheels, I decided to mount some laser cut spring steel wheels
@@ -68,14 +69,13 @@
 
     <div class="section">
     <h3>Electronics</h3>
-    <p>The general idea to Oreo's circuitry is that a 22V LiPo powers and Arduino Nano through a buck converter
-        which recieves signal from an RC transmitter and an accelerometer. The reciever tells the Arduino the users
-        intended movement, and the accelerometer
-        tells the arduino how fast it's spinning using a radial acceleration -> rotational frequency calculation.
-        The arduino sends PWM signals to the ESCs depending on the input signal.
-        An LED is also illuminated once per rotation to mark the heading direction.
+    <p>The general idea behind Oreo’s electronics is that a 22 V LiPo powers an Arduino Nano through a buck converter.
+        The Arduino receives input from an RC transmitter and an accelerometer.
+        The receiver provides the user’s intended movement, while the accelerometer measures radial acceleration,
+        which is converted into rotational frequency to determine spin rate. Based on these inputs,
+        the Arduino sends PWM signals to the ESCs. An LED is illuminated once per rotation to indicate the robot’s heading.
 
-        Here is the electrical diagram for me robot, sourced from an open source project called <a href="https://github.com/nothinglabs/openmelt2" target="_blank" rel="noopener noreferrer">OpenmeltV2</a>.
+        The electrical schematic for the robot is shown below and is based on the open-source project. <a href="https://github.com/nothinglabs/openmelt2" target="_blank" rel="noopener noreferrer">OpenmeltV2</a>.
         <img src="images/schematic.jpg" alt="Schematic" class="content-img">
     </p>
     </div>
