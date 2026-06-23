@@ -164,7 +164,9 @@ ul {
 
 /* YouTube link */
 .youtube-link {
-  font-size: 1em;
+  font-size: 1rem;
+  line-height: 1.75;
+  font-weight: 600;
   color: #ff4c4c;
   text-decoration: none;
 }
@@ -274,11 +276,12 @@ body.extended .section {
 
 .img-row .content-img {
   width: calc(50% - 0.5rem);
-  max-width: 420px;
+  max-width: none;
   margin: 0;
-  height: auto;
+  height: 320px; /* fixed visual height for parity */
   display: block;
-
+  object-fit: cover;
+  border-radius: 14px;
 }
 .photo-section {
     margin-top: 4em;
