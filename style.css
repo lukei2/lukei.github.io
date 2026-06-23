@@ -1,66 +1,197 @@
 /* =========================================
-   Global site styles (all pages)
+   Google Fonts — monospace for accents/labels
 ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
+/* =========================================
+   Design tokens
+========================================= */
 :root {
-  --bg: #000;
-  --fg: #fff;
-  --accent: #f0c674;
+  --bg:            #0d0d0d;
+  --fg:            #e8e8e8;
+  --fg-muted:      #777;
+  --accent:        #f0c674;
+  --accent-cyan:   #4ecdc4;
+  --border:        rgba(255, 255, 255, 0.07);
+  --border-accent: rgba(240, 198, 116, 0.3);
+  --mono:          'JetBrains Mono', 'Courier New', monospace;
+  --nav-h:         52px;
+}
+
+/* =========================================
+   Reset / base
+========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
   background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
   color: var(--fg);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   text-align: center;
-  font-size: 18px; /* sane default across all pages */
+  font-size: 18px;
   line-height: 1.6;
 }
 
-/* Headings */
+/* =========================================
+   Navigation
+========================================= */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background: rgba(13, 13, 13, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-logo:hover { color: var(--fg); }
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+/* =========================================
+   Headings
+========================================= */
 h1, h2 {
   margin-top: 1.5em;
 }
 
+h1 {
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+}
 
+h3 {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.82em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-left: 3px solid var(--accent);
+  padding-left: 0.7em;
+  margin-left: 0;
+}
 
-/* Default paragraph styling (project pages won’t be gigantic) */
+/* =========================================
+   Paragraphs & links
+========================================= */
 p {
   margin: 0.75em 0;
 }
 
-/* Utility */
 a {
   color: inherit;
 }
 
 /* =========================================
-   Homepage-only styles
-   Add: <body class="home">
+   Dividers
 ========================================= */
-
-body.home {
-  font-size: 1.5em;
+hr {
+  margin: 4em 0;
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-accent) 50%, transparent);
 }
 
-body.home p {
-  font-size: 3em;
-  line-height: 1.2;
+/* =========================================
+   Homepage
+========================================= */
+body.home {
+  font-size: 18px;
+}
+
+.hero {
+  max-width: 700px;
+  margin: 3.5em auto 1em;
+  text-align: left;
+  padding: 0 2rem;
+}
+
+.hero-tag {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--accent-cyan);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.6em;
+}
+
+.hero-name {
+  font-family: var(--mono);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 600;
+  margin: 0 0 0.5em;
+  letter-spacing: 0.02em;
+  color: var(--fg);
+}
+
+.hero-bio {
+  font-size: 0.95rem;
+  color: var(--fg-muted);
+  line-height: 1.85;
+  max-width: 560px;
+}
+
+.projects-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  display: block;
+  text-align: center;
+  margin: 3em 0 1.2em;
 }
 
 /* Photo grid container */
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 2em;
-  max-width: 1000px;
+  gap: 12px;
+  padding: 0 2em 5em;
+  max-width: 960px;
   margin: 0 auto;
 }
 
-/* Center last row if exactly 2 items (supported in modern browsers) */
+/* Center last row if exactly 2 items */
 .photo-grid:has(.photo-item:nth-last-child(2):nth-child(3n+1)) {
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
@@ -70,9 +201,17 @@ body.home p {
 .photo-item {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 1 / 1; /* Keeps square shape */
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.photo-item:hover {
+  border-color: rgba(240, 198, 116, 0.45);
+  box-shadow: 0 8px 28px rgba(240, 198, 116, 0.1), 0 2px 8px rgba(0, 0, 0, 0.6);
+  transform: translateY(-4px);
 }
 
 /* Images inside grid */
@@ -80,39 +219,60 @@ body.home p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: filter 0.3s ease, transform 0.3s ease;
+  transition: filter 0.3s, transform 0.3s;
 }
 
-/* Hover effect */
 .photo-item:hover img {
-  filter: grayscale(100%);
-  transform: scale(1.05);
+  filter: brightness(0.4);
+  transform: scale(1.04);
 }
 
 /* Overlay */
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
-  font-size: 1.2em;
+  transition: opacity 0.3s;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
   text-align: center;
-  padding: 0 10px;
-  line-height: 1.2;
+  padding: 0 16px;
+  line-height: 1.4;
 }
 
-.photo-item:hover .overlay {
-  opacity: 1;
-}
+.photo-item:hover .overlay { opacity: 1; }
 
 /* =========================================
-   Project pages (p1.html, p1extended.html, etc.)
+   Project pages
 ========================================= */
+body.project {
+  font-size: 1.5em;
+  text-align: center;
+  padding-top: 0;
+}
+
+/* The nav needs to break out of body's 2em padding */
+body.project .site-nav {
+  margin: 0 -2em;
+  width: calc(100% + 4em);
+}
+
+body.project h1 {
+  margin-top: 1.2em;
+}
+
+body.project h2 {
+  margin-top: 0.6em;
+  font-size: 1em;
+  font-weight: 400;
+  color: var(--fg-muted);
+  letter-spacing: 0.02em;
+}
 
 .text-section {
   max-width: 800px;
@@ -121,25 +281,29 @@ body.home p {
   padding: 0 1.25rem;
 }
 
-h3 {
-  color: var(--accent);
-}
-
-/* Content image style (used on subpages) */
-img.content-img {
-  max-width: min(900px, 92vw);
-  height: auto;
-  border-radius: 10px;
-  margin: 2em auto;
-  display: block;
-}
-
-/* Lists */
 ul {
   line-height: 1.6;
 }
 
-/* Button link to extended page */
+ul li {
+  padding: 0.15em 0;
+}
+
+ul li::marker {
+  color: var(--accent);
+}
+
+/* Content image */
+img.content-img {
+  max-width: min(900px, 92vw);
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin: 2em auto;
+  display: block;
+}
+
+/* Button to extended page */
 .extended-link-container {
   text-align: center;
   margin: 3em 0 1em;
@@ -147,14 +311,16 @@ ul {
 
 .extended-link {
   display: inline-block;
-  padding: 12px 28px;
-  border: 2px solid var(--accent);
+  padding: 10px 26px;
+  border: 1px solid var(--accent);
   color: var(--accent);
   text-decoration: none;
-  border-radius: 30px;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.78em;
   font-weight: 500;
-  letter-spacing: 0.5px;
-  transition: all 0.25s ease;
+  letter-spacing: 0.1em;
+  transition: background 0.25s, color 0.25s;
 }
 
 .extended-link:hover {
@@ -164,81 +330,29 @@ ul {
 
 /* YouTube link */
 .youtube-link {
-  font-size: 1rem;
-  line-height: 1.75;
+  font-family: var(--mono);
+  font-size: 0.82em;
   font-weight: 600;
-  color: #ff4c4c;
+  color: var(--accent-cyan);
   text-decoration: none;
+  border-bottom: 1px solid rgba(78, 205, 196, 0.35);
+  padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s;
 }
 
 .youtube-link:hover {
-  text-decoration: underline;
+  color: var(--fg);
+  border-color: rgba(232, 232, 232, 0.5);
 }
 
 /* =========================================
-   Extended project page readability fixes
+   Extended project pages
 ========================================= */
-
-.text-section {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  text-align: left;
-}
-
-/* Paragraph spacing */
-.text-section p {
-  margin: 1.25em 0;
-  line-height: 1.7;
-  font-size: 1rem;
-}
-
-/* Section headings */
-.text-section h2,
-.text-section h3 {
-  margin-top: 3em;
-  margin-bottom: 0.75em;
-}
-
-/* First heading shouldn’t be pushed down */
-.text-section h2:first-child,
-.text-section h3:first-child {
-  margin-top: 1.5em;
-}
-
-/* Improve visual separation between sections */
-.section {
-  margin-bottom: 3em;
-}
-
-/* Optional: soften overall feel */
-.text-section {
-  letter-spacing: 0.01em;
-}
-
-/* =========================================
-   Page-specific typography control
-========================================= */
-
-/* Normal project pages (p1–p8 etc.) */
-body.project {
-  font-size: 1.5em;       /* restores your previous big sizing */
+body.extended {
+  font-size: 18px;
   text-align: center;
 }
 
-/* If you want headings a bit tighter on project pages */
-body.project h1,
-body.project h2 {
-  margin-top: 3em;
-}
-
-/* Extended page: readable article style */
-body.extended {
-  font-size: 18px;        /* keeps extended from being huge */
-  text-align: center;     /* title can stay centered */
-}
-
-/* Constrain and left-align the reading column */
 body.extended .text-section {
   max-width: 900px;
   margin: 0 auto;
@@ -246,26 +360,25 @@ body.extended .text-section {
   text-align: left;
 }
 
-/* Paragraph spacing + readable line height */
 body.extended .text-section p {
   margin: 1.25em 0;
   line-height: 1.75;
   font-size: 1rem;
 }
 
-/* Section headings spacing */
 body.extended .text-section h2,
 body.extended .text-section h3 {
   margin-top: 2.5em;
   margin-bottom: 0.75em;
 }
 
-/* Optional: give sections breathing room */
 body.extended .section {
   margin-bottom: 2.5em;
 }
 
-/* Image row: place multiple content images side-by-side at smaller size */
+/* =========================================
+   Image rows
+========================================= */
 .img-row {
   display: flex;
   gap: 1rem;
@@ -278,30 +391,35 @@ body.extended .section {
   width: calc(50% - 0.5rem);
   max-width: none;
   margin: 0;
-  height: 320px; /* fixed visual height for parity */
+  height: 320px;
   display: block;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 8px;
 }
+
+/* =========================================
+   Photo sections (biomechatronics etc.)
+========================================= */
 .photo-section {
-    margin-top: 4em;
+  margin-top: 4em;
 }
 
 .photo-section h2 {
-    text-align: center;
-    margin-bottom: 1.5em;
+  text-align: center;
+  margin-bottom: 1.5em;
 }
 
 .photo-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
 }
 
 .photo-row img {
-    height: 220px;              /* key: same visual height */
-    width: auto;
-    object-fit: cover;
-    border-radius: 10px;
+  height: 220px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
 }
